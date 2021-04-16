@@ -5,6 +5,7 @@
  */
 package com.mycompany.practica1_ej2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,14 +13,15 @@ import java.util.List;
  *
  * @author kelvi
  */
-public class album {
+public class album implements Serializable{
+    private static final long serialVersionUID=5L;
     private String nombre,artista,formato;
     private List<Cancion> lista_temas;
 
     public void mostrar(){
-        System.out.println("nombre");
-        System.out.println("");
-        System.out.println("");
+        System.out.println("ALBUM="+this.nombre);
+        System.out.println("ARTISTA="+this.artista);
+        System.out.println("FORMATO="+this.formato);
     }
     
     public void adicionar_cancion(Cancion c){
@@ -27,6 +29,16 @@ public class album {
         System.out.println("cancion agregada");
     }
     
+   
+
+    //metodos de extraccion de atributos
+    public List<Cancion> getLista_temas() {
+        return lista_temas;
+    }
+    public void setLista_temas(List<Cancion> lista_temas) {    
+        this.lista_temas = lista_temas;
+    }
+
     public album() {
         lista_temas=new ArrayList<>();
     }

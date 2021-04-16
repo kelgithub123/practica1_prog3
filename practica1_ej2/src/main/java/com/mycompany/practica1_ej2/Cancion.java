@@ -5,20 +5,22 @@
  */
 package com.mycompany.practica1_ej2;
 
+import java.io.Serializable;
+
 /**
  *
  * @author kelvi
  */
-public class Cancion {
+public class Cancion implements Serializable{
+    private static final long serialVersionUID=4L;
     private String nombreCancion,genero;
     private float duracion;
 
     public void mostrar(){
         System.out.println("---------------------------");
-        System.out.println("nombre"+this.nombreCancion);
-        System.out.println("genero"+this.genero);
-        System.out.println("duracion"+this.duracion);
-        System.out.println("-------------------------");
+        System.out.println("nombre="+this.nombreCancion);
+        System.out.println("genero="+this.genero);
+        System.out.println("duracion="+this.duracion);
     }
     
     public String getNombreCancion() {
