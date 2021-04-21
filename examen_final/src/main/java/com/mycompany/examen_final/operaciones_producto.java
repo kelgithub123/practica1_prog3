@@ -38,43 +38,44 @@ public class operaciones_producto {
     lista_prov=new ArrayList<>();
     }        
     
-public void registro_prov(){
-        prov=new provedor();
-        boolean y=true;
+    public void registro_prov() {
+        prov = new provedor();
+        boolean y = true;
         System.out.println("RAZON SOCIAL::");
-        String rs=lee.nextLine();
+        String rs = lee.nextLine();
         prov.setRazon_social(rs);
         System.out.println("DIRECCION::");
-        String di=lee.nextLine();
+        String di = lee.nextLine();
         prov.setDireccion(di);
         System.out.println("TELEFONO::");
-        int te=lee.nextInt();
+        int te = lee.nextInt();
         prov.setNumero_tel(te);
         lee.nextLine();
-        do{    
-        prod=new producto();    
-        System.out.println("PRODUCTO:");
-        String n=lee.nextLine();
-        prod.setNombre_producto(n);;
-        System.out.println("COSTO UNITARIO:");
-        float cu=lee.nextFloat();
-        prod.setCosto_unitario(cu);
-        System.out.println("STOCK:");
-        int st=lee.nextInt();
-        prod.setStock(st);
-        //añado producto a proveedor
-        prov.add_product(prod);
-        lee.nextLine();
-        //pregutno si se desea seguir agregrando productos
-        System.out.println("desea seguir agregando productos?y/n");
-        String resp=lee.nextLine();
-        if(resp.equalsIgnoreCase("n")){
-            y=false;
-        }    
-        }while(y);        
+        do {
+            prod = new producto();
+            System.out.println("PRODUCTO:");
+            String n = lee.nextLine();
+            prod.setNombre_producto(n);
+            System.out.println("COSTO UNITARIO:");
+            float cu = lee.nextFloat();
+            prod.setCosto_unitario(cu);
+            System.out.println("STOCK:");
+            int st = lee.nextInt();
+            prod.setStock(st);
+            //añado producto a proveedor
+            prov.adi_product(prod);
+            lee.nextLine();
+            lista_prov.add(prov);
+            guardar_datos();
+            prod=null;
+            //pregutno si se desea seguir agregrando productos
+            System.out.println("desea seguir agregando productos?y/n");
+            String resp = lee.nextLine();
+            if (resp.equalsIgnoreCase("n")) {
+                y = false;
+            }
+        } while (y);      
 //añnado el provedor a un lista para la serializacion
-lista_prov.add(prov);
-guardar_datos();
     }
 
 public void productos_prov(String nom){
@@ -194,6 +195,17 @@ public void comprar_prod(String prov,String prod){
                 Logger.getLogger(operaciones_producto.class.getName()).log(Level.SEVERE, null, ex);
            }
        }
+     public void mostrartodo(){
+     lee_datos();
+     for (provedor pv : lista_prov) {
+            pv.mostrar_prov();
+            for(producto pr:pv.getLista_productos()){
+            pr.mortrar_producto();
+            break;
+            }
+        }
+    }
+     
 }
 
 

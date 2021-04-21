@@ -25,7 +25,8 @@ public class principal {
             System.out.println("1.- REGISTRAR PROVEEDOR Y PRODUCTOS");
             System.out.println("2.- LISTAR PRODUCTOS DE PROVEEDOR");
             System.out.println("3.- COMPRAR PRODUCTO");
-            System.out.println("4.- SALIR");
+            System.out.println("4.- MOSTRAR TODO");
+            System.out.println("5.- SALIR");
             System.out.println("Digite una opción");
             System.out.println("----------------------------------");
             opc = leer.nextInt();
@@ -44,7 +45,10 @@ public class principal {
                     System.out.println("que producto desea comprar?");
                     String prod=leer.nextLine();
                     obj.prov_prod_disp(prod);
-                    break;                    
+                    break;
+                case 4:
+                    obj.mostrartodo();
+                    break;
                 default:
                     continuar = false;
                     break;

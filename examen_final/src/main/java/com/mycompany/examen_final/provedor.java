@@ -18,25 +18,24 @@ private static final long serialVersionUID=11L;
     private String razon_social,direccion;
     private int numero_tel;
     private List<producto> lista_productos;
+
     
     public provedor() {
         lista_productos=new ArrayList<>();
     }
     
-//    public void crearlista(){
-//    lista_productos=new ArrayList<>();
-//    }
+ 
     public void mostrar_prov(){
         System.out.println("RAZON SOCIAL::"+this.razon_social);
         System.out.println("DIRECCION::"+this.direccion);
         System.out.println("TELEFONO::"+this.numero_tel);        
     }
-    public void add_product(producto p){
-    if(p!=null){
-    this.lista_productos.add(p);
-    }
-    else
-            System.out.println("el producto esta null");
+    
+    public void adi_product(producto p){
+    lista_productos.add(p);
+            System.out.println("....adicionando producto");
+    for(producto prod:lista_productos)
+    {p.mortrar_producto();}
     }
 
     public String getRazon_social() {
