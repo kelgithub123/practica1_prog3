@@ -17,25 +17,29 @@ public class provedor implements Serializable{
 private static final long serialVersionUID=11L;
     private String razon_social,direccion;
     private int numero_tel;
-    private List<producto> lista_productos;
+    private producto p;
+    private List <producto> lista_productos;
 
     
-    public provedor() {
+    public provedor() {        
         lista_productos=new ArrayList<>();
     }
     
  
     public void mostrar_prov(){
+        System.out.println("--------------------------------------");
         System.out.println("RAZON SOCIAL::"+this.razon_social);
         System.out.println("DIRECCION::"+this.direccion);
         System.out.println("TELEFONO::"+this.numero_tel);        
+        System.out.println("--------------------------------------");
     }
     
-    public void adi_product(producto p){
-    lista_productos.add(p);
+    public void adi_product(producto prod){
+        System.out.println("nom"+prod.getNombre_producto());
+        System.out.println("nom"+prod.getCosto_unitario());
+        System.out.println("nom"+prod.getStock());
+        lista_productos.add(prod);
             System.out.println("....adicionando producto");
-    for(producto prod:lista_productos)
-    {p.mortrar_producto();}
     }
 
     public String getRazon_social() {

@@ -30,18 +30,20 @@ public class operaciones_producto {
     private provedor prov;
     private List<provedor> lista_prov;
     private List<provedor> lista_prov_oferta;    
-    Scanner lee=new Scanner(System.in);
+    Scanner lee;
 
     public operaciones_producto() {
     crearDir();
     crearArch();
     lista_prov=new ArrayList<>();
+    lee = new Scanner(System.in);
     }        
     
     public void registro_prov() {
-        prov = new provedor();
+        
         boolean y = true;
-        System.out.println("RAZON SOCIAL::");
+        prov = new provedor();
+        System.out.println("PROVEEDOR::");
         String rs = lee.nextLine();
         prov.setRazon_social(rs);
         System.out.println("DIRECCION::");
@@ -64,11 +66,7 @@ public class operaciones_producto {
             prod.setStock(st);
             //añado producto a proveedor
             prov.adi_product(prod);
-            lee.nextLine();
-            lista_prov.add(prov);
-            guardar_datos();
-            prod=null;
-            //pregutno si se desea seguir agregrando productos
+            lee.nextLine();            
             System.out.println("desea seguir agregando productos?y/n");
             String resp = lee.nextLine();
             if (resp.equalsIgnoreCase("n")) {
@@ -76,6 +74,8 @@ public class operaciones_producto {
             }
         } while (y);      
 //añnado el provedor a un lista para la serializacion
+lista_prov.add(prov);
+guardar_datos();
     }
 
 public void productos_prov(String nom){
@@ -85,7 +85,7 @@ public void productos_prov(String nom){
             pv.mostrar_prov();
             for(producto pr:pv.getLista_productos()){
             pr.mortrar_producto();
-            break;
+            
             }
         }
     }
@@ -198,10 +198,10 @@ public void comprar_prod(String prov,String prod){
      public void mostrartodo(){
      lee_datos();
      for (provedor pv : lista_prov) {
+            System.out.println("cantidad de datos"+pv.getLista_productos().size());
             pv.mostrar_prov();
             for(producto pr:pv.getLista_productos()){
             pr.mortrar_producto();
-            break;
             }
         }
     }

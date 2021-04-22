@@ -16,6 +16,11 @@ public class producto implements Serializable{
     private String nombre_producto;
     private float costo_unitario;
     private int stock;
+
+    public producto() {
+
+    }
+    
     
     public void mortrar_producto(){
         System.out.println("---------------------------------------");
